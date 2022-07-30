@@ -27,6 +27,6 @@ namespace GameMain
         /// <summary>
         /// 游戏。
         /// </summary>
-       GameForm = 101,
+       GameOverForm = 101,
     }
 }
