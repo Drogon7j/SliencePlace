@@ -49,6 +49,11 @@ namespace GameMain
         {
             entityComponent.ShowEntity(typeof(Effect), "Effect", Constant.AssetPriority.EffectAsset, data);
         }
+        
+        public static void ShowLevel(this EntityComponent entityComponent, LevelData data)
+        {
+            entityComponent.ShowEntity(typeof(Level), "Level", Constant.AssetPriority.EffectAsset, data);
+        }
 
         private static void ShowEntity(this EntityComponent entityComponent, Type logicType, string entityGroup, int priority, EntityData data)
         {

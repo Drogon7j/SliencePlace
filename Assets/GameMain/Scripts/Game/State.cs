@@ -10,7 +10,7 @@ namespace GameMain
         Game,
         Next,
         BackToMenu,
-        Reset,
         GameFailed,
+        GameClear
     }
 }

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float mMoveSpeed = 0;
     [SerializeField] private float mMoveToggle = 0;
     [SerializeField] private float mRotateToggle= 0;
+    [SerializeField] private bool mCameraFollow = false;
     private Rigidbody2D m_Rigid = null;
     private float m_DUp = 0;
     private float m_DRight = 0;
@@ -38,20 +39,32 @@ public class PlayerController : MonoBehaviour
     private Vector2 m_CircleInput = Vector2.zero;
     private Vector3 m_MovingVec = Vector3.zero;
 
-    private void Start()
+    private GameState m_GameState = GameState.Undefined;
+    private void Awake()
     {
-        //GameEntry.Event.Subscribe(ChangeGameStateEventArgs.EventId,OnReset);
         m_Rigid = GetComponent<Rigidbody2D>();
     }
-    
+
+    private void OnEnable()
+    {
+        GameEntry.Event.Subscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
+    }
+
     private void Update()
     {
+        if (m_GameState != GameState.Game)
+            return;
         GetInput();
+        if (mCameraFollow)
+        {
+            Camera.main.gameObject.transform.position = new Vector3(transform.position.x,
+                transform.position.y, Camera.main.gameObject.transform.position.z);
+        }
     }
 
     private void OnDisable()
     {
-        //GameEntry.Event.Unsubscribe(ChangeGameStateEventArgs.EventId,OnReset);
+        GameEntry.Event.Unsubscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
     }
 
     private void GetInput()
@@ -89,14 +102,9 @@ public class PlayerController : MonoBehaviour
         return output;
     }
 
-    private void OnReset(object sender,GameEventArgs e)
+    private void ChangeGameState(object sender,GameEventArgs e)
     {
         ChangeGameStateEventArgs ne = (ChangeGameStateEventArgs)e;
-        switch (ne.GameState)
-        {
-            case GameState.Reset:
-                transform.position = Vector3.zero;
-                break;
-        }
+        m_GameState = ne.GameState;
     }
 }

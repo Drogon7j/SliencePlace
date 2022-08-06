@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameFramework.Event;
 using GameMain;
 using UnityEngine;
 namespace CourseMain
@@ -16,6 +17,7 @@ namespace CourseMain
 		}
 
 		private EnemyState m_EnemyState = EnemyState.Undefined;
+		private GameState m_GameState = GameState.Undefined;
 		[SerializeField] private float mSpeed = 0.5f;
 		[SerializeField] private GameObject mEnemyModel = null;
 		[SerializeField] private GameObject[] mFollowTargets = null;
@@ -27,12 +29,19 @@ namespace CourseMain
 		// Use this for initialization
 		void Start()
 		{
-			m_EnemyState = EnemyState.Undefined;
+			m_EnemyState = mFollowTargets.Length == 0 ? EnemyState.Stand : EnemyState.Patrol;
+		}
+
+		private void OnEnable()
+		{
+			GameEntry.Event.Subscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
 		}
 
 		// Update is called once per frame
 		void Update()
 		{
+			if (m_GameState != GameState.Game)
+				return;
 			switch (m_EnemyState)
 			{
 				case EnemyState.Undefined:
@@ -51,6 +60,11 @@ namespace CourseMain
 			
 		}
 
+		private void OnDisable()
+		{
+			GameEntry.Event.Unsubscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
+		}
+
 		private void Follow()
         {
 			UniformMotion();
@@ -65,7 +79,7 @@ namespace CourseMain
 				m_StartPos = mEnemyModel.transform.position;
 				m_IsFollow = true;
 			}
-			mEnemyModel.transform.LookAt(mFollowTargets[m_CurrentTarget].transform.position);
+			//mEnemyModel.transform.LookAt(mFollowTargets[m_CurrentTarget].transform.position);
             if (m_StartPos == Vector3.zero)
             {
 				mEnemyModel.transform.position = Vector3.Lerp(m_StartPos,
@@ -99,6 +113,12 @@ namespace CourseMain
 				return;
 			Debug.Log(1);
 			GameEntry.Event.Fire(this,ChangeGameStateEventArgs.Create(GameState.GameFailed));
+		}
+		
+		private void ChangeGameState(object sender,GameEventArgs e)
+		{
+			ChangeGameStateEventArgs ne = (ChangeGameStateEventArgs)e;
+			m_GameState = ne.GameState;
 		}
 	}
 }
