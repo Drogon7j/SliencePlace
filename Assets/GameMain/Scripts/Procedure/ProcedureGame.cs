@@ -59,9 +59,9 @@ namespace GameMain
                 case GameState.Next:
                     break;
                 case GameState.BackToMenu:
+                    m_GameState = GameState.Undefined;
                     procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Menu"));
                     ChangeState<ProcedureChangeScene>(procedureOwner);
-                    m_GameState = GameState.Undefined;
                     break;
                 case GameState.GameFailed:
                     break;
@@ -114,7 +114,7 @@ namespace GameMain
             HideEntityCompleteEventArgs ne = (HideEntityCompleteEventArgs)e;
             if (ne.EntityId != m_LevelDatas[m_CurrentLevelID].Id)
                 return;
-            if (m_CurrentLevelID < m_LevelCount)
+            if (m_CurrentLevelID + 1 < m_LevelCount)
             {
                 m_CurrentLevelID++;
                 Debug.Log(m_CurrentLevelID);
@@ -122,9 +122,8 @@ namespace GameMain
             }
             else
             {
-                m_GameState = GameState.GameClear;
+                m_GameState = GameState.BackToMenu;
             }
-            
         }
         
         private void ChangeToNextLevel()

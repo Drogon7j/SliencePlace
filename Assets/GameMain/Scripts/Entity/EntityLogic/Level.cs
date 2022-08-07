@@ -7,6 +7,11 @@ namespace GameMain
 {
     public class Level : Entity
     {
+        public enum LevelState
+        {
+            
+        }
+        
         [SerializeField] private LevelData mLevelData = null;
         private GameObject m_Invisible = null;
         private GameObject m_ResetPosition = null;
@@ -20,6 +25,7 @@ namespace GameMain
             base.OnShow(userData);
             mLevelData = userData as LevelData;
             GameEntry.Event.Subscribe(GameResetEventArgs.EventId,OnReset);
+            GameEntry.Event.Subscribe(ShowMapEventArgs.EventId,ShowMap);
             
             InitInvisible();
             InitPosition();
@@ -39,6 +45,7 @@ namespace GameMain
         protected override void OnHide(bool isShutdown, object userData)
         {
             GameEntry.Event.Unsubscribe(GameResetEventArgs.EventId,OnReset);
+            GameEntry.Event.Unsubscribe(ShowMapEventArgs.EventId,ShowMap);
             base.OnHide(isShutdown, userData);
         }
 
@@ -55,7 +62,7 @@ namespace GameMain
 
         private void InitInvisible()
         {
-            m_Invisible = transform.GetChild(0).gameObject;
+            m_Invisible = transform.GetChild(0).GetChild(0).gameObject;
             m_InvisibleArray = new GameObject[m_Invisible.transform.childCount];
             for (int i = 0; i < m_Invisible.transform.childCount; i++)
             {
@@ -79,7 +86,19 @@ namespace GameMain
         {
             for (int i = 0; i < m_InvisibleArray.Length; i++)
             {
-                m_InvisibleArray[i].transform.GetChild(0).GetComponent<TilemapRenderer>().enabled = false;
+                TilemapRenderer tilemapRenderer = null;
+                m_InvisibleArray[i].TryGetComponent<TilemapRenderer>(out tilemapRenderer);
+                if (tilemapRenderer != null)
+                {
+                    tilemapRenderer.enabled = false;
+                }
+                
+                SpriteRenderer spriteRenderer = null;
+                m_InvisibleArray[i].TryGetComponent<SpriteRenderer>(out spriteRenderer);
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.enabled = false;
+                }
             }
         }
 
@@ -88,7 +107,33 @@ namespace GameMain
             for (int i = 0; i < m_ResetPositionArray.Length; i++)
             {
                 m_ResetObjArray[i].transform.position = m_ResetPositionArray[i];
+                m_ResetObjArray[i].gameObject.SetActive(true);
             }
+        }
+        
+        private void ShowInvisible()
+        {
+            for (int i = 0; i < m_InvisibleArray.Length; i++)
+            {
+                TilemapRenderer tilemapRenderer = null;
+                m_InvisibleArray[i].TryGetComponent<TilemapRenderer>(out tilemapRenderer);
+                if (tilemapRenderer != null)
+                {
+                    tilemapRenderer.enabled = true;
+                }
+                
+                SpriteRenderer spriteRenderer = null;
+                m_InvisibleArray[i].TryGetComponent<SpriteRenderer>(out spriteRenderer);
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.enabled = true;
+                }
+            }
+        }
+
+        private void ShowMap(object sender, GameEventArgs e)
+        {
+            ShowInvisible();
         }
     }
 }
