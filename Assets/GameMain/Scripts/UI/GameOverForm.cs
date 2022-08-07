@@ -18,7 +18,9 @@ namespace GameMain
         
         public void OnRestartButtonClick()
         {
-            GameEntry.Event.Fire(this,ChangeGameStateEventArgs.Create(GameState.Reset));
+            GameEntry.Event.Fire(this,GameResetEventArgs.Create());
+            GameEntry.Event.Fire(this,ChangeGameStateEventArgs.Create(GameState.Game));
+            Close();
         }
         
         public void OnQuitButtonClick()

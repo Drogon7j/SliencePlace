@@ -228,6 +228,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1852670053}
     m_Modifications:
+    - target: {fileID: 110832, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 116470, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_Name
       value: Builtin
@@ -446,15 +450,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11494652, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_EntityGroups.Array.size
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11494652, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_EntityGroups.Array.data[0].m_Name
-      value: Aircraft
+      value: Level
       objectReference: {fileID: 0}
     - target: {fileID: 11494652, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_EntityGroups.Array.data[1].m_Name
-      value: Thruster
+      value: Effect
       objectReference: {fileID: 0}
     - target: {fileID: 11494652, guid: adb3eb1c35fcff14f89fba7b05c9d71c, type: 3}
       propertyPath: m_EntityGroups.Array.data[2].m_Name
@@ -975,3 +979,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d09b8a3e8c0e7e4dbcfd2fa52bf69ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &6448781459606207445
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 531355248297130000, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_Name
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130000, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2405641
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.9300306
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4532008
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 531355248297130006, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9c31804b0d70f6428de236ed14245aa, type: 3}

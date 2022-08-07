@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameFramework.Event;
 using GameMain;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 namespace CourseMain
 {
 	public class EnemyController : MonoBehaviour
 	{
-		private enum EnemyState
+		public enum EnemyState
 		{
 			Undefined,
 			Stand,
 			Patrol,
-			Follow
+			Follow,
+			FollowPlayer
 		}
 
 		private EnemyState m_EnemyState = EnemyState.Undefined;
+		private GameState m_GameState = GameState.Undefined;
 		[SerializeField] private float mSpeed = 0.5f;
 		[SerializeField] private GameObject mEnemyModel = null;
 		[SerializeField] private GameObject[] mFollowTargets = null;
@@ -24,15 +29,40 @@ namespace CourseMain
 		private bool m_IsFollow = false;
 		private float m_StartTime = 0;
 		private Vector3 m_StartPos = Vector3.zero;
+		
+		private bool m_ShowSound = false;
+
+		private GameObject[] m_SoundPosts = null;
+		
+		private Vector3 m_Distance = Vector3.zero;
+		private bool m_IsPlayMoan = false;
+		private int? m_MoanSound = null;
 		// Use this for initialization
 		void Start()
 		{
-			m_EnemyState = EnemyState.Undefined;
+			m_EnemyState = mFollowTargets.Length == 0 ? EnemyState.Stand : EnemyState.Patrol;
+		}
+
+		private void OnEnable()
+		{
+			GameEntry.Event.Subscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
+			GameEntry.Event.Subscribe(SendPlayerPositionEventArgs.EventId,ReceivePos);
+			GameEntry.Event.Subscribe(ChangeEnemyStateEventArgs.EventId,ChangeEnemyState);
+			m_SoundPosts = new GameObject[transform.GetChild(0).childCount];
+			for (int i = 0; i < transform.GetChild(0).childCount; i++)
+			{
+				m_SoundPosts[i] = transform.GetChild(0).GetChild(i).gameObject;
+			}
+			ResetSoundPosts();
+			m_MoanSound = new int();
+			m_IsPlayMoan = false;
 		}
 
 		// Update is called once per frame
 		void Update()
 		{
+			if (m_GameState != GameState.Game)
+				return;
 			switch (m_EnemyState)
 			{
 				case EnemyState.Undefined:
@@ -43,12 +73,40 @@ namespace CourseMain
 					Follow();
 					break;
 				case EnemyState.Follow:
-					
+					break;
+				case EnemyState.FollowPlayer:
+					transform.position = Vector3.Lerp(transform.position, m_Distance, 0.1f);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
+			if (m_ShowSound)
+			{
+				RandomSoundPosts();
+				if (!m_IsPlayMoan)
+				{
+					m_MoanSound = GameEntry.Sound.PlaySound(10007);
+					m_IsPlayMoan = true;
+				}
+			}
+			else
+			{
+				ResetSoundPosts();
+				if (m_IsPlayMoan)
+				{
+					if (m_MoanSound != null) 
+						GameEntry.Sound.StopSound((int)m_MoanSound);
+					m_IsPlayMoan = false;
+				}
+			}
 			
+		}
+
+		private void OnDisable()
+		{
+			GameEntry.Event.Unsubscribe(SendPlayerPositionEventArgs.EventId,ReceivePos);
+			GameEntry.Event.Unsubscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
+			GameEntry.Event.Unsubscribe(ChangeEnemyStateEventArgs.EventId,ChangeEnemyState);
 		}
 
 		private void Follow()
@@ -65,7 +123,7 @@ namespace CourseMain
 				m_StartPos = mEnemyModel.transform.position;
 				m_IsFollow = true;
 			}
-			mEnemyModel.transform.LookAt(mFollowTargets[m_CurrentTarget].transform.position);
+			//mEnemyModel.transform.LookAt(mFollowTargets[m_CurrentTarget].transform.position);
             if (m_StartPos == Vector3.zero)
             {
 				mEnemyModel.transform.position = Vector3.Lerp(m_StartPos,
@@ -95,10 +153,67 @@ namespace CourseMain
 
 		private void OnTriggerEnter2D(Collider2D col)
 		{
-			if (col.gameObject.name != "Player")
-				return;
-			Debug.Log(1);
-			GameEntry.Event.Fire(this,ChangeGameStateEventArgs.Create(GameState.GameFailed));
+			if (col.gameObject.name == "Player")
+			{
+				GameEntry.Event.Fire(this,OnEnemyTriggerEventArgs.Create(gameObject));
+			}
+			else if (col.gameObject.name == "AttackSoundPosts")
+			{
+				transform.gameObject.SetActive(false);
+			}
+
+		}
+		
+		private void ChangeGameState(object sender,GameEventArgs e)
+		{
+			ChangeGameStateEventArgs ne = (ChangeGameStateEventArgs)e;
+			m_GameState = ne.GameState;
+			if (m_GameState == GameState.GameFailed)
+			{
+				m_EnemyState = mFollowTargets.Length == 0 ? EnemyState.Stand : EnemyState.Patrol;
+			}
+		}
+
+		private void ReceivePos(object sender, GameEventArgs e)
+		{
+			SendPlayerPositionEventArgs ne = (SendPlayerPositionEventArgs)e;
+			m_Distance = ne.Position;
+			var distance = Vector2.Distance(transform.position, ne.Position);
+			//Debug.Log(distance);
+			if (distance < 5)
+			{
+				m_ShowSound = true;
+			}
+			else
+			{
+				m_ShowSound = false;
+			}
+		}
+
+		private void ChangeEnemyState(object sender, GameEventArgs e)
+		{
+			ChangeEnemyStateEventArgs ne = (ChangeEnemyStateEventArgs)e;
+			m_EnemyState = ne.EnemyState;
+		}
+		
+		private void RandomSoundPosts()
+		{
+			for (int i = 0; i < m_SoundPosts.Length; i++)
+			{
+				var scaleY = Random.Range(0.1f, 2f);
+				var randomVector = new Vector3(1.0f, scaleY,
+					m_SoundPosts[i].transform.localScale.z);
+				m_SoundPosts[i].transform.localScale =
+					Vector3.Lerp(m_SoundPosts[i].transform.localScale, randomVector, 0.9f);
+			}
+		}
+		
+		private void ResetSoundPosts()
+		{
+			for (int i = 0; i < m_SoundPosts.Length; i++)
+			{
+				m_SoundPosts[i].transform.localScale = Vector3.zero;
+			}
 		}
 	}
 }
