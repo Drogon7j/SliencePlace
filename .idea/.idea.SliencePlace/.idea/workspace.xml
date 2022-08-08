@@ -4,16 +4,42 @@
     <list default="true" id="faf584b2-8913-4ee6-aa04-4fb23f1ebf3e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SliencePlace/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SliencePlace/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameEntry.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameEntry.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceBuilder.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceBuilder.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceCollection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceCollection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/DataTables/Entity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/DataTables/Entity.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/DataTables/Sound.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/DataTables/Sound.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Level1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Level1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Palette/wall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Palette/wall.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityLogic/Level.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityLogic/Level.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/DataTables/UIForm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/DataTables/UIForm.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/LevelDemo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/LevelDemo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/BoxCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/BoxCollider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EndPointCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EndPointCollider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/InvisibleTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/InvisibleTrigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Procedure/ProcedureGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Procedure/ProcedureGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/MenuForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/MenuForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/UIFormId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/UIFormId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/GameOverForm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/GameOverForm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/MenuForm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/MenuForm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again_Click.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Box.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Box.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End_Click.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit_Click.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LOGO.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LOGO.jpeg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LevelSelect.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LevelSelect.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/MenuBG.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/MenuBG.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Sonar.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Sonar.jpeg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start_Click.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Wall.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Wall.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Zeus.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Zeus.jpeg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityLogic/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Event/ChangeEnemyStateEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Event/ChangeGameStateEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Event/ChangeItemStateEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Event/ChangeLevelEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Event/ChangePlayerStateEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Event/GameOverEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,9 +68,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Game/InvisibleTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Game/State.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/UI/GameOverForm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/UI/ItemForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/GridPaintPaletteClipboard.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.15.18/Editor/PlasticSCM/Views/History/HistoryListView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.15.18/Editor/PlasticSCM/Views/IncomingChanges/Gluon/Errors/ErrorsListView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/NoActiveCameraInSceneDoesNotCrashEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/TextEditor/TextEditorTests.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -111,6 +140,7 @@
       <workItem from="1659842650831" duration="26328000" />
       <workItem from="1659885597946" duration="634000" />
       <workItem from="1659891681708" duration="3657000" />
+      <workItem from="1659969983341" duration="9487000" />
     </task>
     <servers />
   </component>
@@ -139,10 +169,10 @@
           <line>114</line>
           <properties documentPath="D:\UnityProject\SliencePlace\SliencePlace\Assets\GameMain\Scripts\Procedure\ProcedureGame.cs" initialLine="114" containingFunctionPresentation="method 'OnHideEntityComplete'">
             <startOffsets>
-              <option value="4714" />
+              <option value="4891" />
             </startOffsets>
             <endOffsets>
-              <option value="4767" />
+              <option value="4944" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
@@ -152,10 +182,10 @@
           <line>68</line>
           <properties documentPath="D:\UnityProject\SliencePlace\SliencePlace\Assets\GameMain\Scripts\Game\BoxCollider.cs" initialLine="67" containingFunctionPresentation="method 'OnTriggerEnter2D'">
             <startOffsets>
-              <option value="2400" />
+              <option value="2402" />
             </startOffsets>
             <endOffsets>
-              <option value="2454" />
+              <option value="2456" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />

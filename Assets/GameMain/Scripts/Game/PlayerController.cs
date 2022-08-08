@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     private GameObject m_Mask = null;
     private GameState m_GameState = GameState.Undefined;
 
-
+    private BoxCollider2D m_BoxCollider2D = null;
     private bool m_IsPlayFoot = false;
     private int? m_FootSound = null;
     private void Awake()
@@ -103,7 +103,8 @@ public class PlayerController : MonoBehaviour
         {
             m_AttackSoundPosts[i] = transform.GetChild(2).GetChild(i).gameObject;
         }
-        
+        m_BoxCollider2D = GetComponent<BoxCollider2D>();
+        m_BoxCollider2D.enabled = true;
         m_PlayerState = PlayerState.NoArms;
         m_IsPlayFoot = false;
         m_StartCountSignal = false;
@@ -131,23 +132,33 @@ public class PlayerController : MonoBehaviour
                 WalkSoundPosts();
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    GameEntry.Sound.PlaySound(10010);
                     transform.GetChild(0).gameObject.SetActive(false);
                     transform.GetChild(2).gameObject.SetActive(true);
                     RandomAttackSoundPosts();
                     m_StartCountSignal = true;
                     m_NextState = PlayerState.GetKnife;
                     m_PlayerState = PlayerState.UseItem;
+                    m_NowKnifeNum++;
+                    GameEntry.Event.Fire(this,
+                        ChangeItemStateEventArgs.Create(PlayerState.GetKnife, mKnifeNum - m_NowKnifeNum));
                 }
                 break;
             case PlayerState.GetGun:
                 
                 break;
             case PlayerState.GetZeus:
+                GetInput();
+                WalkSoundPosts();
                 break;
             case PlayerState.GetSonar:
                 GetInput();
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    GameEntry.Sound.PlaySound(10003);
+                    m_NowSonarNum++;
+                    GameEntry.Event.Fire(this,
+                        ChangeItemStateEventArgs.Create(PlayerState.GetSonar, mSonarNum - m_NowSonarNum));
                     m_PlayerState = PlayerState.UseItem;
                     m_Mask.transform.DOScale(Vector3.one * 4, 0.5f).OnComplete(() =>
                     {
@@ -177,7 +188,6 @@ public class PlayerController : MonoBehaviour
                         case PlayerState.NoArms:
                             break;
                         case PlayerState.GetKnife:
-                            m_NowKnifeNum++;
                             transform.GetChild(0).gameObject.SetActive(true);
                             transform.GetChild(2).gameObject.SetActive(false);
                             if (m_NowKnifeNum < mKnifeNum)
@@ -239,6 +249,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
+        if (m_FootSound != null) 
+            GameEntry.Sound.StopSound(m_FootSound.Value);
         GameEntry.Event.Unsubscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
         GameEntry.Event.Unsubscribe(ChangePlayerStateEventArgs.EventId,ChangePlayerState);
         GameEntry.Event.Unsubscribe(OnEnemyTriggerEventArgs.EventId,OnEnemyTrigger);
@@ -302,9 +314,14 @@ public class PlayerController : MonoBehaviour
     {
         ChangeGameStateEventArgs ne = (ChangeGameStateEventArgs)e;
         m_GameState = ne.GameState;
-        if (m_GameState == GameState.GameFailed)
+        switch (m_GameState)
         {
-            m_PlayerState = PlayerState.NoArms;
+            case GameState.Game:
+                m_BoxCollider2D.enabled = true;
+                break;
+            case GameState.GameFailed:
+                m_PlayerState = PlayerState.NoArms;
+                break;
         }
     }
 
@@ -319,15 +336,22 @@ public class PlayerController : MonoBehaviour
             case PlayerState.NoArms:
                 break;
             case PlayerState.GetKnife:
+                GameEntry.Sound.PlaySound(10001);
                 m_NowKnifeNum = 0;
+                GameEntry.Event.Fire(this,ChangeItemStateEventArgs.Create(PlayerState.GetKnife,mKnifeNum));
                 break;
             case PlayerState.GetGun:
+                GameEntry.Sound.PlaySound(10001);
                 m_NowGunNum = 0;
                 break;
             case PlayerState.GetZeus:
+                GameEntry.Sound.PlaySound(10001);
+                GameEntry.Event.Fire(this,ChangeItemStateEventArgs.Create(PlayerState.GetZeus,mZeusNum));
                 m_NowZeusNum = 0;
                 break;
             case PlayerState.GetSonar:
+                GameEntry.Sound.PlaySound(10001);
+                GameEntry.Event.Fire(this,ChangeItemStateEventArgs.Create(PlayerState.GetSonar,mSonarNum));
                 m_NowSonarNum = 0;
                 break;
             default:
@@ -380,6 +404,7 @@ public class PlayerController : MonoBehaviour
             case PlayerState.GetGun:
             case PlayerState.GetSonar:
             case PlayerState.UseItem:
+                m_BoxCollider2D.enabled = false;
                 GameEntry.Sound.StopAllLoadedSounds();
                 GameEntry.Sound.PlaySound(10002);
                 m_PlayerState = PlayerState.Undefined;
@@ -388,6 +413,8 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.GetZeus:
                 m_NowZeusNum++;
+                GameEntry.Event.Fire(this,
+                    ChangeItemStateEventArgs.Create(PlayerState.GetZeus, mZeusNum - m_NowZeusNum));
                 if (m_NowZeusNum == mZeusNum)
                 {
                     m_PlayerState = PlayerState.NoArms;

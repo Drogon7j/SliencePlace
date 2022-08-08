@@ -22,22 +22,22 @@ namespace GameMain
             GameEntry.Event.Subscribe(ShowEntitySuccessEventArgs.EventId,ShowEntitySuccess);
             GameEntry.Event.Subscribe(HideEntityCompleteEventArgs.EventId,OnHideEntityComplete);
             GameEntry.Event.Subscribe(ChangeLevelEventArgs.EventId,ChangeLevel);
-            
+
+            GameEntry.UI.OpenUIForm(UIFormId.ItemForm);
             m_LevelDatas = new List<LevelData>();
             IDataTable<DREntity> dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
-            m_LevelCount = dtEntity.Count;
-            m_CurrentLevelID = 0;
+            m_LevelCount = 1;
+            GameEntry.DataNode.GetOrAddNode("LEVEL_COUNT");
+            GameEntry.DataNode.SetData<VarInt32>("LEVEL_COUNT",m_LevelCount);
+            m_CurrentLevelID = GameEntry.DataNode.GetData<VarInt32>("LEVEL_ID");
+            
             for (int i = 0; i < m_LevelCount; i++)
             {
                 var levelData = new LevelData(GameEntry.Entity.GenerateSerialId(), 10000 + i);
                 Debug.Log(levelData.Id);
-                if (i == 0)
-                {
-                    GameEntry.Entity.ShowLevel(levelData);
-                }
                 m_LevelDatas.Add(levelData);
             }
-
+            GameEntry.Entity.ShowLevel(m_LevelDatas[m_CurrentLevelID]);
             m_GameState = GameState.Game;
         }
         
@@ -124,6 +124,7 @@ namespace GameMain
             {
                 m_GameState = GameState.BackToMenu;
             }
+            GameEntry.DataNode.SetData<VarInt32>("LEVEL_ID",m_CurrentLevelID);
         }
         
         private void ChangeToNextLevel()

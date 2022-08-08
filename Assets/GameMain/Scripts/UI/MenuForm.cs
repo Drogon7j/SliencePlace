@@ -1,10 +1,4 @@
-﻿//------------------------------------------------------------
-// Game Framework
-// Copyright © 2013-2021 Jiang Yin. All rights reserved.
-// Homepage: https://gameframework.cn/
-// Feedback: mailto:ellan@gameframework.cn
-//------------------------------------------------------------
-
+﻿
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -12,14 +6,21 @@ namespace GameMain
 {
     public class MenuForm : UGuiForm
     {
-        [SerializeField]
-        private GameObject m_QuitButton = null;
-
+        [SerializeField] private GameObject mPageMenu = null;
+        [SerializeField] private GameObject mPageSelect = null;
         private ProcedureMenu m_ProcedureMenu = null;
 
+        public void OnNumButtonClick(int num)
+        {
+            GameEntry.DataNode.SetData<VarInt32>("LEVEL_ID",num);
+            m_ProcedureMenu.StartGame();
+        }
+        
         public void OnStartButtonClick()
         {
-            m_ProcedureMenu.StartGame();
+            mPageMenu.SetActive(false);
+            mPageSelect.SetActive(true);
+            
         }
         
         public void OnQuitButtonClick()
@@ -41,15 +42,15 @@ namespace GameMain
 #endif
         {
             base.OnOpen(userData);
-
+            GameEntry.DataNode.GetOrAddNode("LEVEL_ID");
             m_ProcedureMenu = (ProcedureMenu)userData;
             if (m_ProcedureMenu == null)
             {
                 Log.Warning("ProcedureMenu is invalid when open MenuForm.");
                 return;
             }
-
-            m_QuitButton.SetActive(Application.platform != RuntimePlatform.IPhonePlayer);
+            mPageMenu.SetActive(true);
+            mPageSelect.SetActive(false);
         }
 
 #if UNITY_2017_3_OR_NEWER

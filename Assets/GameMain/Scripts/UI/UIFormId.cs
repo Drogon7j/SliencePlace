@@ -28,5 +28,10 @@ namespace GameMain
         /// 游戏。
         /// </summary>
        GameOverForm = 101,
+        
+        /// <summary>
+        /// 道具
+        /// </summary>
+        ItemForm = 102,
     }
 }

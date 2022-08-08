@@ -104,6 +104,10 @@ namespace CourseMain
 
 		private void OnDisable()
 		{
+			if (m_MoanSound != null) 
+				GameEntry.Sound.StopSound(m_MoanSound.Value);
+			var randomNum = Random.Range(0, 2);
+			GameEntry.Sound.PlaySound(10005 + randomNum);
 			GameEntry.Event.Unsubscribe(SendPlayerPositionEventArgs.EventId,ReceivePos);
 			GameEntry.Event.Unsubscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
 			GameEntry.Event.Unsubscribe(ChangeEnemyStateEventArgs.EventId,ChangeEnemyState);
@@ -171,6 +175,7 @@ namespace CourseMain
 			if (m_GameState == GameState.GameFailed)
 			{
 				m_EnemyState = mFollowTargets.Length == 0 ? EnemyState.Stand : EnemyState.Patrol;
+				ResetSoundPosts();
 			}
 		}
 

@@ -28,7 +28,7 @@ public class BoxCollider : MonoBehaviour
         while (!m_RandomOver)
         {
             var randomNum = Random.Range(0, 5);
-            Debug.LogWarning(randomNum);
+            //Debug.LogWarning(randomNum);
             switch (randomNum)
             {
                 case 0:

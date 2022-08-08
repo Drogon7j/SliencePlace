@@ -5,4 +5,4 @@
 	1	弹出框	DialogForm	Default	TRUE	TRUE
 	100	主菜单	MenuForm	Default	FALSE	TRUE
 	101	游戏结束UI	GameOverForm	Default	FALSE	FALSE
-	102	关于	AboutForm	Default	FALSE	FALSE
+	102	道具UI	ItemForm	Default	FALSE	FALSE

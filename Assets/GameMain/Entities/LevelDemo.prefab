@@ -4025,9 +4025,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa32d77ff4d986145b41031c415edc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mRandomKnife: 1
+  mRandomKnife: 0
   mRandomGun: 0
-  mRandomZeus: 0
+  mRandomZeus: 1
   mRandomSonar: 0
   mRandomMap: 0
 --- !u!61 &4124037808267589813
@@ -5882,7 +5882,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2865482826232417734, guid: 63cf6c25ca1fc3e49b61b83d379ee70c, type: 3}
       propertyPath: mIsHide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5765777804167565553, guid: 63cf6c25ca1fc3e49b61b83d379ee70c, type: 3}
       propertyPath: m_RootOrder
@@ -5890,11 +5890,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5765777804167565553, guid: 63cf6c25ca1fc3e49b61b83d379ee70c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.5
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 5765777804167565553, guid: 63cf6c25ca1fc3e49b61b83d379ee70c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.79
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5765777804167565553, guid: 63cf6c25ca1fc3e49b61b83d379ee70c, type: 3}
       propertyPath: m_LocalPosition.z
