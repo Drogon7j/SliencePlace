@@ -2,16 +2,20 @@
 #	Id		AssetName	Priority	Loop	Volume	SpatialBlend	MaxDistance
 #	int		string	int	bool	float	float	float
 #	声音编号	策划备注	资源名称	优先级（默认0，128最高，-128最低）	是否循环	音量（0~1）	声音空间混合量（0为2D，1为3D，中间值混合效果）	声音最大距离
-	10000		Sound_Footstep	0	TRUE	1	0	100
-	10001		Sound_Map	0	FALSE	1	0	100
-	10002		Sound_PlayerDeath	0	FALSE	1	0	100
-	10003		Sound_Sonar	0	FALSE	1	0	100
+	10000		Sound_Footstep	1	TRUE	1	0	100
+	10001		Sound_Map	1	FALSE	1	0	100
+	10002		Sound_PlayerDeath	2	FALSE	1	0	100
+	10003		Sound_Sonar	1	FALSE	1	0	100
 	10004		Sound_SpikeTrap	0	FALSE	1	0	100
-	10005		Sound_ZombieFall1	0	FALSE	1	0	100
-	10006		Sound_ZombieFall2	0	FALSE	1	0	100
-	10007		Sound_ZombieMoan	1	TRUE	1	0	100
+	10005		Sound_ZombieFall1	1	FALSE	1	0	100
+	10006		Sound_ZombieFall2	1	FALSE	1	0	100
+	10007		Sound_ZombieMoan	0	TRUE	1	0	100
 	10008		Sound_DoorOpen	2	FALSE	1	0	100
 	10009		Sound_DoorOpenEnd	2	FALSE	1	0	100
-	10010		Sound_Knife	2	FALSE	1	0	100
-	10011		Sound_ZombieFall1	1	FALSE	1	0	100
-	10012		Sound_ZombieFall2	1	FALSE	1	0	100
+	10010		Sound_Knife	1	FALSE	1	0	100
+	10011		Sound_Taser	1	FALSE	1	0	100
+	10012		Sound_ZombieMoan1	0	FALSE	1	0	100
+	10013		Sound_ZombieMoan2	0	FALSE	1	0	100
+	10014		Sound_ZombieMoan3	0	FALSE	1	0	100
+	10015		Sound_ZombieMoan4	0	FALSE	1	0	100
+	10016		Sound_ZombieMoan5	0	FALSE	1	0	100

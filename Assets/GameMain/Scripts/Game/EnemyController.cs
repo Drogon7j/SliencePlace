@@ -48,6 +48,7 @@ namespace CourseMain
 			GameEntry.Event.Subscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
 			GameEntry.Event.Subscribe(SendPlayerPositionEventArgs.EventId,ReceivePos);
 			GameEntry.Event.Subscribe(ChangeEnemyStateEventArgs.EventId,ChangeEnemyState);
+			GameEntry.Event.Subscribe(GameResetEventArgs.EventId,GameReset);
 			m_SoundPosts = new GameObject[transform.GetChild(0).childCount];
 			for (int i = 0; i < transform.GetChild(0).childCount; i++)
 			{
@@ -85,7 +86,8 @@ namespace CourseMain
 				RandomSoundPosts();
 				if (!m_IsPlayMoan)
 				{
-					m_MoanSound = GameEntry.Sound.PlaySound(10007);
+					var randomNum = Random.Range(0, 6);
+					m_MoanSound = GameEntry.Sound.PlaySound(10012 + randomNum);
 					m_IsPlayMoan = true;
 				}
 			}
@@ -94,8 +96,8 @@ namespace CourseMain
 				ResetSoundPosts();
 				if (m_IsPlayMoan)
 				{
-					if (m_MoanSound != null) 
-						GameEntry.Sound.StopSound((int)m_MoanSound);
+					// if (m_MoanSound != null) 
+					// 	GameEntry.Sound.StopSound((int)m_MoanSound);
 					m_IsPlayMoan = false;
 				}
 			}
@@ -106,11 +108,10 @@ namespace CourseMain
 		{
 			if (m_MoanSound != null) 
 				GameEntry.Sound.StopSound(m_MoanSound.Value);
-			var randomNum = Random.Range(0, 2);
-			GameEntry.Sound.PlaySound(10005 + randomNum);
 			GameEntry.Event.Unsubscribe(SendPlayerPositionEventArgs.EventId,ReceivePos);
 			GameEntry.Event.Unsubscribe(ChangeGameStateEventArgs.EventId,ChangeGameState);
 			GameEntry.Event.Unsubscribe(ChangeEnemyStateEventArgs.EventId,ChangeEnemyState);
+			GameEntry.Event.Unsubscribe(GameResetEventArgs.EventId,GameReset);
 		}
 
 		private void Follow()
@@ -135,9 +136,15 @@ namespace CourseMain
 			}
             else
             {
+	            var distance =
+		            Mathf.Abs(Vector3.Distance(m_StartPos, mFollowTargets[m_CurrentTarget].transform.position));
+	            if (distance == 0)
+	            {
+		            distance = 0.0001f;
+	            }
 				mEnemyModel.transform.position = Vector3.Lerp(m_StartPos,
 				mFollowTargets[m_CurrentTarget].transform.position, (Time.unscaledTime - m_StartTime) * mSpeed /
-				Mathf.Abs(Vector3.Distance(m_StartPos, mFollowTargets[m_CurrentTarget].transform.position)));
+				distance);
 			}
 		}
 
@@ -157,12 +164,16 @@ namespace CourseMain
 
 		private void OnTriggerEnter2D(Collider2D col)
 		{
+			if (m_EnemyState == EnemyState.Undefined)
+				return;
 			if (col.gameObject.name == "Player")
 			{
 				GameEntry.Event.Fire(this,OnEnemyTriggerEventArgs.Create(gameObject));
 			}
 			else if (col.gameObject.name == "AttackSoundPosts")
 			{
+				var randomNum = Random.Range(0, 2);
+				GameEntry.Sound.PlaySound(10005 + randomNum);
 				transform.gameObject.SetActive(false);
 			}
 
@@ -172,10 +183,15 @@ namespace CourseMain
 		{
 			ChangeGameStateEventArgs ne = (ChangeGameStateEventArgs)e;
 			m_GameState = ne.GameState;
-			if (m_GameState == GameState.GameFailed)
+			switch (m_GameState)
 			{
-				m_EnemyState = mFollowTargets.Length == 0 ? EnemyState.Stand : EnemyState.Patrol;
-				ResetSoundPosts();
+				case GameState.GameFailed:
+					m_EnemyState = EnemyState.Undefined;
+					ResetSoundPosts();
+					break;
+				case GameState.Game:
+					m_EnemyState = mFollowTargets.Length == 0 ? EnemyState.Stand : EnemyState.Patrol;
+					break;
 			}
 		}
 
@@ -193,6 +209,11 @@ namespace CourseMain
 			{
 				m_ShowSound = false;
 			}
+		}
+
+		private void GameReset(object sender, GameEventArgs e)
+		{
+			
 		}
 
 		private void ChangeEnemyState(object sender, GameEventArgs e)

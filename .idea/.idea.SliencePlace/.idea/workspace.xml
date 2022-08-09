@@ -7,39 +7,36 @@
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceBuilder.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceBuilder.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceCollection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Configs/ResourceCollection.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/DataTables/Entity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/DataTables/Entity.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/DataTables/Music.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/DataTables/Music.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/DataTables/Sound.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/DataTables/Sound.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/DataTables/UIForm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/DataTables/UIForm.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/LevelDemo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/LevelDemo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/BoxCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/BoxCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Level1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Level1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Level2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Level2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Level3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Level3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Level4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Level4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Level5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Level5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Level6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Level6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Entities/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Entities/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Palette/wall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Palette/wall.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityLogic/Level.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityLogic/Level.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Event/GameResetEventArgs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Event/GameResetEventArgs.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EndPointCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EndPointCollider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Game/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/Procedure/ProcedureGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/Procedure/ProcedureGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/MenuForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/MenuForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/UIFormId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/UIFormId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/GameOverForm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/GameOverForm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/GameOverForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Scripts/UI/GameOverForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Sounds/Sound_DoorOpen.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Sounds/Sound_DoorOpen.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/Sounds/Sound_DoorOpenEnd.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/Sounds/Sound_DoorOpenEnd.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/MenuForm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UIForms/MenuForm.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Again_Click.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Box.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Box.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/End_Click.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Exit_Click.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Gun.jpeg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Knife.jpeg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LOGO.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LOGO.jpeg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LevelSelect.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/LevelSelect.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/MenuBG.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/MenuBG.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Sonar.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Sonar.jpeg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start_Click.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Start_Click.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Wall.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Wall.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Zeus.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Zeus.jpeg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Enemy.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Enemy.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Player.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameMain/UI/UISprites/Game/Player.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/GameData.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/GameData.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/GameFrameworkVersion.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/GameFrameworkVersion.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Resources.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Resources.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UI.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/UI.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +45,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2e0a48134cc845028fb11656fdc79d2313cc00/76/1ff9c0c3/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2e0a48134cc845028fb11656fdc79d2313cc00/93/82d7dc10/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityData/EnemyData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityData/LevelData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/Entity/EntityLogic/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,10 +68,18 @@
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/UI/GameOverForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMain/Scripts/UI/ItemForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/GridPaintPaletteClipboard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.15.18/Editor/PlasticSCM/Views/CreateWorkspace/Dialogs/CreateRepositoryDialog.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.15.18/Editor/PlasticSCM/Views/History/HistoryListView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.15.18/Editor/PlasticSCM/Views/IncomingChanges/Gluon/Errors/ErrorsListView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@1.15.18/Editor/PlasticSCM/WebApi/CredentialsResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Editor/TMPro_FontAssetCreatorWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_SpriteAnimator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Tests/Editor/TMP_EditorTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/GraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/MaskUtilities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/NoActiveCameraInSceneDoesNotCrashEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Slider/SliderTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/TextEditor/TextEditorTests.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -96,6 +102,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build/SliencePlace\SliencePlace.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\UnityProject\SliencePlace\SliencePlace\Build\SliencePlace" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.36f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\UnityProject\SliencePlace\SliencePlace -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -140,7 +154,9 @@
       <workItem from="1659842650831" duration="26328000" />
       <workItem from="1659885597946" duration="634000" />
       <workItem from="1659891681708" duration="3657000" />
-      <workItem from="1659969983341" duration="9487000" />
+      <workItem from="1659969983341" duration="12351000" />
+      <workItem from="1660042314267" duration="7377000" />
+      <workItem from="1660054268188" duration="672000" />
     </task>
     <servers />
   </component>
@@ -164,19 +180,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/GameMain/Scripts/Procedure/ProcedureGame.cs</url>
-          <line>114</line>
-          <properties documentPath="D:\UnityProject\SliencePlace\SliencePlace\Assets\GameMain\Scripts\Procedure\ProcedureGame.cs" initialLine="114" containingFunctionPresentation="method 'OnHideEntityComplete'">
-            <startOffsets>
-              <option value="4891" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4944" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/GameMain/Scripts/Game/BoxCollider.cs</url>
           <line>68</line>

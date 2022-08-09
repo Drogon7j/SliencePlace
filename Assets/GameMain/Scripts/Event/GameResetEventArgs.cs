@@ -17,9 +17,16 @@ namespace GameMain
             }
         }
 
-        public static GameResetEventArgs Create()
+        public int Type
+        {
+            get;
+            set;
+        }
+
+        public static GameResetEventArgs Create(int type)
         {
             GameResetEventArgs gameResetEventArgs = ReferencePool.Acquire<GameResetEventArgs>();
+            gameResetEventArgs.Type = type;
             return gameResetEventArgs;
         }
 

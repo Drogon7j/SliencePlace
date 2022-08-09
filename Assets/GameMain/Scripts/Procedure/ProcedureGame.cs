@@ -23,10 +23,12 @@ namespace GameMain
             GameEntry.Event.Subscribe(HideEntityCompleteEventArgs.EventId,OnHideEntityComplete);
             GameEntry.Event.Subscribe(ChangeLevelEventArgs.EventId,ChangeLevel);
 
+            GameEntry.Sound.PlayMusic(1);
+            
             GameEntry.UI.OpenUIForm(UIFormId.ItemForm);
             m_LevelDatas = new List<LevelData>();
             IDataTable<DREntity> dtEntity = GameEntry.DataTable.GetDataTable<DREntity>();
-            m_LevelCount = 1;
+            m_LevelCount = dtEntity.Count;
             GameEntry.DataNode.GetOrAddNode("LEVEL_COUNT");
             GameEntry.DataNode.SetData<VarInt32>("LEVEL_COUNT",m_LevelCount);
             m_CurrentLevelID = GameEntry.DataNode.GetData<VarInt32>("LEVEL_ID");
@@ -38,6 +40,10 @@ namespace GameMain
                 m_LevelDatas.Add(levelData);
             }
             GameEntry.Entity.ShowLevel(m_LevelDatas[m_CurrentLevelID]);
+            if (m_GameOverFormID != null && GameEntry.UI.HasUIForm(m_GameOverFormID.Value))
+            {
+                GameEntry.UI.CloseUIForm(m_GameOverFormID.Value);
+            }
             m_GameState = GameState.Game;
         }
         
@@ -50,6 +56,15 @@ namespace GameMain
                 GameEntry.Event.Fire(this,ChangeLevelEventArgs.Create());
             }
 #endif
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (m_GameOverFormID != null && GameEntry.UI.HasUIForm(m_GameOverFormID.Value))
+                {
+                    GameEntry.UI.CloseUIForm(m_GameOverFormID.Value);
+                    return;
+                }
+                m_GameOverFormID = GameEntry.UI.OpenUIForm(UIFormId.GameOverForm);
+            }
             switch (m_GameState)
             {
                 case GameState.Undefined:
@@ -90,6 +105,7 @@ namespace GameMain
                 case GameState.Game:
                     break;
                 case GameState.GameFailed:
+                    //Debug.LogWarning(1);
                     m_GameOverFormID = GameEntry.UI.OpenUIForm(UIFormId.GameOverForm);
                     break;
             }
@@ -106,6 +122,7 @@ namespace GameMain
             ShowEntitySuccessEventArgs ne = (ShowEntitySuccessEventArgs)e;
             if (ne.Entity.Id != m_LevelDatas[m_CurrentLevelID].Id)
                 return;
+            GameEntry.Event.Fire(this,GameResetEventArgs.Create(0));
             GameEntry.Event.Fire(this,ChangeGameStateEventArgs.Create(GameState.Game));
         }
 
@@ -124,6 +141,7 @@ namespace GameMain
             {
                 m_GameState = GameState.BackToMenu;
             }
+            GameEntry.Event.Fire(this, ChangePlayerStateEventArgs.Create(PlayerController.PlayerState.NoArms));
             GameEntry.DataNode.SetData<VarInt32>("LEVEL_ID",m_CurrentLevelID);
         }
         

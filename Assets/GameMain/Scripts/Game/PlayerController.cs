@@ -24,10 +24,15 @@ public class PlayerController : MonoBehaviour
     private PlayerState m_NextState = PlayerState.Undefined;
     
     [Header("InputKey")] 
-    private string m_KeyUp = "w";
+    private string m_KeyUp = "w" ;
     private string m_KeyDown = "s";
     private string m_KeyLeft = "a";
     private string m_KeyRight = "d";
+    private string m_KeyUp2 = "up" ;
+    private string m_KeyDown2 = "down";
+    private string m_KeyLeft2 = "left";
+    private string m_KeyRight2 = "right";
+    
 
     [Header("PlayerData")] 
     [SerializeField] private GameObject mPlayerModel = null;
@@ -103,6 +108,8 @@ public class PlayerController : MonoBehaviour
         {
             m_AttackSoundPosts[i] = transform.GetChild(2).GetChild(i).gameObject;
         }
+        
+        GameEntry.Event.Fire(this,ChangeItemStateEventArgs.Create(PlayerState.NoArms,0));
         m_BoxCollider2D = GetComponent<BoxCollider2D>();
         m_BoxCollider2D.enabled = true;
         m_PlayerState = PlayerState.NoArms;
@@ -260,6 +267,13 @@ public class PlayerController : MonoBehaviour
     {
         m_TargetDUp = (Input.GetKey(m_KeyUp) ? 1.0f : 0) - (Input.GetKey(m_KeyDown) ? 1.0f : 0);
         m_TargetDRight = (Input.GetKey(m_KeyRight) ? 1.0f : 0) - (Input.GetKey(m_KeyLeft) ? 1.0f : 0);
+        
+        if (m_TargetDUp == 0 && m_TargetDRight == 0)
+        {
+            m_TargetDUp = (Input.GetKey(m_KeyUp2) ? 1.0f : 0) - (Input.GetKey(m_KeyDown2) ? 1.0f : 0);
+            m_TargetDRight = (Input.GetKey(m_KeyRight2) ? 1.0f : 0) - (Input.GetKey(m_KeyLeft2) ? 1.0f : 0);
+        }
+        
 
         m_DUp = Mathf.SmoothDamp(m_DUp, m_TargetDUp, ref m_VelocityDup, mMoveToggle);
         m_DRight = Mathf.SmoothDamp(m_DRight, m_TargetDRight, ref m_VelocityDRight, mMoveToggle);
@@ -317,10 +331,12 @@ public class PlayerController : MonoBehaviour
         switch (m_GameState)
         {
             case GameState.Game:
+                m_IsPlayFoot = false;
                 m_BoxCollider2D.enabled = true;
+                m_PlayerState = PlayerState.NoArms;
                 break;
             case GameState.GameFailed:
-                m_PlayerState = PlayerState.NoArms;
+                m_PlayerState = PlayerState.Undefined;
                 break;
         }
     }
@@ -332,8 +348,10 @@ public class PlayerController : MonoBehaviour
         switch (m_PlayerState)
         {
             case PlayerState.Undefined:
+                m_Rigid.velocity = Vector2.zero;
                 break;
             case PlayerState.NoArms:
+                GameEntry.Event.Fire(this,ChangeItemStateEventArgs.Create(PlayerState.NoArms,0));
                 break;
             case PlayerState.GetKnife:
                 GameEntry.Sound.PlaySound(10001);
@@ -396,6 +414,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnemyTrigger(object sender, GameEventArgs e)
     {
+        if (m_PlayerState == PlayerState.Undefined)
+            return;
         OnEnemyTriggerEventArgs ne = (OnEnemyTriggerEventArgs)e;
         switch (m_PlayerState)
         {
@@ -406,12 +426,14 @@ public class PlayerController : MonoBehaviour
             case PlayerState.UseItem:
                 m_BoxCollider2D.enabled = false;
                 GameEntry.Sound.StopAllLoadedSounds();
+                GameEntry.Sound.PlayMusic(1);
                 GameEntry.Sound.PlaySound(10002);
                 m_PlayerState = PlayerState.Undefined;
                 GameEntry.Event.Fire(this, ChangeEnemyStateEventArgs.Create(EnemyController.EnemyState.FollowPlayer));
                 Invoke(nameof(GameFailed),7.0f);
                 break;
             case PlayerState.GetZeus:
+                GameEntry.Sound.PlaySound(10011);
                 m_NowZeusNum++;
                 GameEntry.Event.Fire(this,
                     ChangeItemStateEventArgs.Create(PlayerState.GetZeus, mZeusNum - m_NowZeusNum));
@@ -430,6 +452,7 @@ public class PlayerController : MonoBehaviour
 
     private void GameFailed()
     {
-        GameEntry.Event.Fire(this,ChangeGameStateEventArgs.Create(GameState.GameFailed));
+        GameEntry.Event.FireNow(this,ChangeGameStateEventArgs.Create(GameState.GameFailed));
+        m_PlayerState = PlayerState.Undefined;
     }
 }

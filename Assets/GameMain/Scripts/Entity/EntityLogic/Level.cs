@@ -51,7 +51,12 @@ namespace GameMain
 
         private void OnReset(object sender, GameEventArgs e)
         {
+            GameResetEventArgs ne = (GameResetEventArgs)e;
             ResetLevel();
+            if (ne.Type == 1)
+            {
+                GameEntry.Event.Fire(this,ChangeGameStateEventArgs.Create(GameState.BackToMenu));
+            }
         }
 
         private void ResetLevel()
@@ -63,6 +68,8 @@ namespace GameMain
         private void InitInvisible()
         {
             m_Invisible = transform.GetChild(0).GetChild(0).gameObject;
+            if (m_Invisible.transform.childCount == 0)
+                return;
             m_InvisibleArray = new GameObject[m_Invisible.transform.childCount];
             for (int i = 0; i < m_Invisible.transform.childCount; i++)
             {
@@ -84,6 +91,8 @@ namespace GameMain
 
         private void ResetInvisible()
         {
+            if (m_Invisible.transform.childCount == 0)
+                return;
             for (int i = 0; i < m_InvisibleArray.Length; i++)
             {
                 TilemapRenderer tilemapRenderer = null;

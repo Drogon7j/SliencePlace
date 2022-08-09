@@ -16,10 +16,11 @@ namespace GameMain
 
         private void OnEnable()
         {
+            m_Collider2D = GetComponent<BoxCollider2D>();
+            m_Collider2D.enabled = true;
             if (!mIsHide)
                 return;
             GameEntry.Event.Subscribe(ShowMapEventArgs.EventId, ShowMap);
-            m_Collider2D = GetComponent<BoxCollider2D>();
             m_Renderer = GetComponent<SpriteRenderer>();
             m_Collider2D.enabled = false;
             m_Renderer.enabled = false;
@@ -34,6 +35,8 @@ namespace GameMain
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            m_Collider2D.enabled = false;
+            GameEntry.Event.Fire(this,ChangePlayerStateEventArgs.Create(PlayerController.PlayerState.Undefined));
             var value = GameEntry.DataNode.GetData<VarInt32>("LEVEL_COUNT");
             if (GameEntry.DataNode.GetData<VarInt32>("LEVEL_ID")
                 < value - 1)
